@@ -37,23 +37,23 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 echo "Creating Development Folder 'esp' located at: ~/esp "
 
 mkdir -p "$HOME"/esp
-cd "$HOME/esp" || exit 1
+# cd "$HOME/esp" || exit 1
 
 printf "\nDownloading Compiler..."
 
-wget https://dl.espressif.com/dl/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
+wget https://dl.espressif.com/dl/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz -P ~/esp/ 
 
 printf "\nDownloading ESP8266_RTOS_SDK..."
 
-git clone https://github.com/espressif/ESP8266_RTOS_SDK.git
+git clone https://github.com/espressif/ESP8266_RTOS_SDK.git ~/esp/
 
 export IDF_PATH="\$HOME/esp/ESP8266_RTOS_SDK"
 
 echo "Extracting compiler..."
 
-tar -xzvf xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
+tar -xzvf ~/esp/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz "$HOME"/esp/
 
-rm xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
+rm ~/esp/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
 
 echo "Setting up PATHS..."
 {
