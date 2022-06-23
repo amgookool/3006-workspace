@@ -18,7 +18,7 @@ static const char *degree = "Electrical and Computer Engineering";
 
 void app_main()
 {
-    vTaskSuspendAll(); //suspends the task scheduler 
+    vTaskSuspendAll(); //suspends the task scheduler
 
     // Initializing a task handler for creating and deleting a task
     TaskHandle_t myTaskHandle = NULL;
